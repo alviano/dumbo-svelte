@@ -18,6 +18,17 @@ export class DOMPurifyConfig {
   PURIFY_EXTERNAL_LINK_PREFIXES: string[] = [];
   PURIFY_ALLOWED_TAGS: string[] = [];
   PURIFY_ALLOWED_ATTR: string[] = [];
+
+  constructor(consts: object) {
+    for (const key in this) {
+      if (key in consts) {
+        const { [key]: value } = consts;
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        this[key] = value;
+      }
+    }
+  }
 }
 
 export class Utils {
