@@ -1,7 +1,7 @@
 <script>
     import '../app.css';
     import {Button} from "sveltestrap";
-    import {Utils} from "$lib/utils";
+    import {DOMPurifyConfig, Utils} from "$lib/utils";
 </script>
 
 <h1>Welcome to your library project</h1>
@@ -9,3 +9,7 @@
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 
 <Button on:click={() => {Utils.snackbar('ok')}}>press me</Button>
+
+{@html Utils.render_markdown("_foo_", new DOMPurifyConfig({
+    PURIFY_ALLOWED_TAGS: ['p', 'em', '#text']
+}))}

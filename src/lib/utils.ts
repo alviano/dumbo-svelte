@@ -1,7 +1,7 @@
 import { Snackbar } from 'svelma/src';
 import Alert from "$lib/Alert.svelte";
 import Confirm from "$lib/Confirm.svelte";
-import DOMPurify from 'dompurify';
+import DOMPurify from 'isomorphic-dompurify';
 import Prism from 'prismjs';
 import renderMathInElement from 'katex/dist/contrib/auto-render.mjs';
 import newUniqueId from 'locally-unique-id-generator';
@@ -119,7 +119,7 @@ export class Utils {
     return this.dom_purify(markdownIt.renderInline(content), config);
   }
 
-  static dom_purify(content: string, config: DOMPurifyConfig) {
+  static dom_purify(content: string, config: DOMPurifyConfig = new DOMPurifyConfig({})) {
     const accepted_prefixes = config.PURIFY_EXTERNAL_LINK_PREFIXES;
     const protocol_regex = new RegExp('^(?:[a-z]+:)?//', 'i');
     DOMPurify.addHook('afterSanitizeAttributes', (node) => {
