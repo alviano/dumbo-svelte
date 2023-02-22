@@ -8,3 +8,4 @@ export { default as InternalLink } from "./InternalLink.svelte";
 export { default as PollingButton } from "./PollingButton.svelte";
 export { default as Popover } from "./Popover.svelte";
 export { default as Tooltip } from "./Tooltip.svelte";
+export { RecordsCallbacks, Utils } from "./utils";
