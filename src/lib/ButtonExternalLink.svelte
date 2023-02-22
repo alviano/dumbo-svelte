@@ -5,7 +5,7 @@
   export let href = '#';
 </script>
 
-<Button {color} {href} target="_blank" class={$$props.class}>
+<Button {color} {href} target="_blank" rel="noreferrer" class={$$props.class}>
   <Icon name="link-45deg" class="me-1" />
   <slot />
 </Button>

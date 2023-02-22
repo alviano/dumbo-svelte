@@ -33,5 +33,5 @@
   </a>
 {/if}
 
-<a bind:this={new_tab} class="d-none" target="_blank" {href}>new-tab</a>
+<a bind:this={new_tab} class="d-none" target="_blank" rel="noreferrer" {href}>new-tab</a>
 <a bind:this={same_tab} class="d-none" {target} {href}>same-tab</a>
