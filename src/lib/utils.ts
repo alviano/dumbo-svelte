@@ -7,6 +7,7 @@ import renderMathInElement from 'katex/dist/contrib/auto-render.mjs';
 import newUniqueId from 'locally-unique-id-generator';
 import { sha256 } from "js-sha256";
 import MarkdownIt from 'markdown-it';
+import pako from "pako";
 
 const markdownIt = new MarkdownIt({
   linkify: true,
@@ -165,6 +166,22 @@ export class Utils {
 
   static delay(time: number) {
     return new Promise(resolve => setTimeout(resolve, time));
+  }
+
+  static compress(object: object) {
+    const binData = pako.deflate(JSON.stringify(object));
+    const charData = String.fromCharCode.apply(null, [...binData]);
+    return btoa(charData);
+  }
+
+  static uncompress(base64data: string) {
+    const zlibBinData = atob(base64data);
+    const zlibCharData = zlibBinData.split('').map(function (e) {
+        return e.charCodeAt(0);
+    });
+    const binData = new Uint8Array(zlibCharData);
+    const data = pako.inflate(binData);
+    return String.fromCharCode.apply(null, [...new Uint16Array(data)]);
   }
 
 }
