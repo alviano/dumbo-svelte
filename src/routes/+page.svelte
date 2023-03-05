@@ -3,12 +3,15 @@
     import {Button} from "sveltestrap";
     import {DOMPurifyConfig, Utils} from "$lib/utils";
     import {keydown} from "$lib/stores";
+    import Keybindings from "$lib/Keybindings.svelte";
 
     $keydown.push((event) => {
         console.log(event);
         return false;
     });
 </script>
+
+<Keybindings />
 
 <h1>Welcome to your library project</h1>
 <p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
