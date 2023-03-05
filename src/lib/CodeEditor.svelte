@@ -6,12 +6,13 @@
 
     export let value = '';
 
-    let inject;
+    let textarea;
     let view;
 
     function update(value) {
-        if (value !== view.state.doc)
-        view.update([view.state.update({changes: {from: 0, to: view.state.doc.length, insert: value}})]);
+        if (value !== view.state.doc) {
+            view.update([view.state.update({changes: {from: 0, to: view.state.doc.length, insert: value}})]);
+        }
     }
     $: view ? update(value) : null;
 
@@ -35,14 +36,13 @@
                 ]),
                 EditorView.updateListener.of((view) => {
                     if (view.docChanged) {
-                        value = view.state.doc;
+                        textarea.value = value = view.state.doc;
                     }
                 }),
             ],
         });
-        inject.insertAdjacentElement("afterend", view.dom);
-        inject.remove();
+        textarea.insertAdjacentElement("afterend", view.dom);
     });
 </script>
 
-<span bind:this={inject}></span>
+<textarea bind:this={textarea} class="d-none" {...$$restProps}></textarea>
