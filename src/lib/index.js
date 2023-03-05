@@ -11,3 +11,4 @@ export { default as PollingButton } from "./PollingButton.svelte";
 export { default as Popover } from "./Popover.svelte";
 export { default as Tooltip } from "./Tooltip.svelte";
 export { DOMPurifyConfig, RecordsCallbacks, Utils } from "./utils";
+export { keydown } from "./stores";

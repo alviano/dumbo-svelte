@@ -2,6 +2,12 @@
     import '../app.css';
     import {Button} from "sveltestrap";
     import {DOMPurifyConfig, Utils} from "$lib/utils";
+    import {keydown} from "$lib/stores";
+
+    $keydown.push((event) => {
+        console.log(event);
+        return false;
+    });
 </script>
 
 <h1>Welcome to your library project</h1>
