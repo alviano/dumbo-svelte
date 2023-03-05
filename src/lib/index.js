@@ -7,6 +7,7 @@ export { default as Calendar } from "./Calendar.svelte";
 export { default as Confirm } from "./Confirm.svelte";
 export { default as ExternalLink } from "./ExternalLink.svelte";
 export { default as InternalLink } from "./InternalLink.svelte";
+export { default as Keybindings } from "./Keybindings.svelte";
 export { default as PollingButton } from "./PollingButton.svelte";
 export { default as Popover } from "./Popover.svelte";
 export { default as Tooltip } from "./Tooltip.svelte";
