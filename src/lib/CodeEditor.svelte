@@ -5,15 +5,17 @@
     import {defaultKeymap, indentLess, insertTab} from "@codemirror/commands";
 
     export let value = '';
+    export let readonly = false;
 
     let textarea;
     let view;
 
     function update(value) {
         if (value !== view.state.doc) {
-            view.update([view.state.update({changes: {from: 0, to: view.state.doc.length, insert: value}})]);
+            view.update([view.state.update({})]);
         }
     }
+
     $: view ? update(value) : null;
 
     onMount(() => {
@@ -34,6 +36,7 @@
                         run: indentLess,
                     },
                 ]),
+                EditorView.editable.of(!readonly),
                 EditorView.updateListener.of((view) => {
                     if (view.docChanged) {
                         textarea.value = value = view.state.doc;
