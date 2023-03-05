@@ -1,14 +1,17 @@
 <script>
     import '../app.css';
-    import {Button} from "sveltestrap";
+    import {Button, Input} from "sveltestrap";
     import {DOMPurifyConfig, Utils} from "$lib/utils";
     import {keydown} from "$lib/stores";
     import Keybindings from "$lib/Keybindings.svelte";
+    import CodeEditor from "$lib/CodeEditor.svelte";
 
     $keydown.push((event) => {
         console.log(event);
         return false;
     });
+
+    let value = 'hello'
 </script>
 
 <Keybindings />
@@ -22,3 +25,6 @@
 {@html Utils.render_markdown("_foo_", new DOMPurifyConfig({
     PURIFY_ALLOWED_TAGS: ['p', 'em', '#text']
 }))}
+
+<Input bind:value />
+<CodeEditor bind:value />
