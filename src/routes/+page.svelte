@@ -27,4 +27,4 @@
 }))}
 
 <Input bind:value />
-<CodeEditor bind:value />
+<CodeEditor bind:value readonly />

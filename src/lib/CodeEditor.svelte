@@ -1,18 +1,20 @@
 <script>
     import {basicSetup, EditorView} from "codemirror";
-    import {onMount} from "svelte";
+    import {onDestroy, onMount} from "svelte";
     import {keymap} from "@codemirror/view";
     import {defaultKeymap, indentLess, insertTab} from "@codemirror/commands";
+    import {Badge} from "sveltestrap";
 
     export let value = '';
     export let readonly = false;
 
     let textarea;
+    let inject;
     let view;
 
     function update(value) {
         if (value !== view.state.doc) {
-            view.update([view.state.update({})]);
+            view.update([view.state.update({changes: {from: 0, to: view.state.doc.length, insert: value}})]);
         }
     }
 
@@ -44,8 +46,19 @@
                 }),
             ],
         });
-        textarea.insertAdjacentElement("afterend", view.dom);
+        inject.appendChild(view.dom);
+    });
+
+    onDestroy(() => {
+        if (view) {
+            view.dom.remove();
+        }
     });
 </script>
 
 <textarea bind:this={textarea} class="d-none" {...$$restProps}></textarea>
+<div bind:this={inject}>
+    {#if readonly}
+        <Badge class="float-end" color="warning">readonly</Badge>
+    {/if}
+</div>
