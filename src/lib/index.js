@@ -1,4 +1,5 @@
 export { default as Alert } from "./Alert.svelte";
+export { default as AutoHideBadge } from "./AutoHideBadge.svelte";
 export { default as Breadcrumb } from "./Breadcrumb.svelte";
 export { default as ButtonExternalLink } from "./ButtonExternalLink.svelte";
 export { default as ButtonInternalLink } from "./ButtonInternalLink.svelte";
