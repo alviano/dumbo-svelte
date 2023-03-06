@@ -4,7 +4,6 @@ export { default as ButtonExternalLink } from "./ButtonExternalLink.svelte";
 export { default as ButtonInternalLink } from "./ButtonInternalLink.svelte";
 export { default as ButtonSwitch } from "./ButtonSwitch.svelte";
 export { default as Calendar } from "./Calendar.svelte";
-export { default as CodeEditor } from "./CodeEditor.svelte";
 export { default as Confirm } from "./Confirm.svelte";
 export { default as ExternalLink } from "./ExternalLink.svelte";
 export { default as InternalLink } from "./InternalLink.svelte";

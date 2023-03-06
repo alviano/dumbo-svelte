@@ -4,14 +4,14 @@
     import {DOMPurifyConfig, Utils} from "$lib/utils";
     import {keydown} from "$lib/stores";
     import Keybindings from "$lib/Keybindings.svelte";
-    import CodeEditor from "$lib/CodeEditor.svelte";
 
     $keydown.push((event) => {
         console.log(event);
         return false;
     });
 
-    let value = 'hello'
+
+
 </script>
 
 <Keybindings />
@@ -26,5 +26,3 @@
     PURIFY_ALLOWED_TAGS: ['p', 'em', '#text']
 }))}
 
-<Input bind:value />
-<CodeEditor bind:value readonly />
