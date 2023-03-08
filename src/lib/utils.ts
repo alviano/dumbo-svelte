@@ -184,6 +184,10 @@ export class Utils {
     return String.fromCharCode.apply(null, [...new Uint16Array(data)]);
   }
 
+  static abbreviate(string: string, length: number) {
+    return string.length <= length ? string : string.substring(0, length - 1) + "…";
+  }
+
 }
 
 export class RecordsCallbacks {
