@@ -22,8 +22,8 @@
             }
 
             event.uKey = event.key.toUpperCase();
-            for (const handler of $keydown.values()) {
-                if (handler(event)) {
+            for (const handler of $keydown) {
+                if (handler[1](event)) {
                     event.preventDefault();
                     return;
                 }
