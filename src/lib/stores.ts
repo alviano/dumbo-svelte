@@ -1,3 +1,3 @@
 import {writable} from "svelte/store";
 
-export const keydown = writable([]);
+export const keydown = writable(new Map());

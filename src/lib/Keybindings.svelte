@@ -22,7 +22,7 @@
             }
 
             event.uKey = event.key.toUpperCase();
-            for (const handler of $keydown) {
+            for (const handler of $keydown.values()) {
                 if (handler(event)) {
                     event.preventDefault();
                     return;
