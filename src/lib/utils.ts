@@ -170,19 +170,22 @@ export class Utils {
   }
 
   static compress(object: object) {
-    const binData = pako.deflate(JSON.stringify(object));
-    const charData = String.fromCharCode.apply(null, [...binData]);
-    return Base64.encode(charData);
+    const json = JSON.stringify(object);
+    const utf16bytes = [];
+    for (let i = 0; i < json.length; ++i) {
+      const code = json.charCodeAt(i);
+      utf16bytes.push(code & 0xff, code / 256 >>> 0);
+    }
+    const encoded = String.fromCharCode.apply(null, utf16bytes);
+    const binData = pako.deflate(encoded);
+    return Base64.fromUint8Array(binData);
   }
 
   static uncompress(base64data: string) {
-    const zlibBinData = Base64.decode(base64data);
-    const zlibCharData = zlibBinData.split('').map(function (e) {
-        return e.charCodeAt(0);
-    });
-    const binData = new Uint8Array(zlibCharData);
-    const data = pako.inflate(binData);
-    return String.fromCharCode.apply(null, [...new Uint16Array(data)]);
+    const binData = Base64.toUint8Array(base64data);
+    const encoded = pako.inflate(binData);
+    const json = String.fromCharCode.apply(null, [...new Uint16Array(encoded.buffer)]);
+    return JSON.parse(json);
   }
 
   static abbreviate(string: string, length: number) {
