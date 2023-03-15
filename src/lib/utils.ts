@@ -171,12 +171,7 @@ export class Utils {
 
   static compress(object: object) {
     const json = JSON.stringify(object);
-    const utf16bytes = [];
-    for (let i = 0; i < json.length; ++i) {
-      const code = json.charCodeAt(i);
-      utf16bytes.push(code & 0xff, code / 256 >>> 0);
-    }
-    const encoded = String.fromCharCode.apply(null, utf16bytes);
+    const encoded = Base64.encode(json);
     const binData = pako.deflate(encoded);
     return Base64.fromUint8Array(binData);
   }
@@ -184,7 +179,7 @@ export class Utils {
   static uncompress(base64data: string) {
     const binData = Base64.toUint8Array(base64data);
     const encoded = pako.inflate(binData);
-    const json = String.fromCharCode.apply(null, [...new Uint16Array(encoded.buffer)]);
+    const json = Base64.decode(String.fromCharCode.apply(null, [...encoded]));
     return JSON.parse(json);
   }
 
