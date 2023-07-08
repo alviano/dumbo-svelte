@@ -175,7 +175,7 @@ export class Utils {
 
   static add_copy_button(element: Element) {
     const div = document.createElement("div");
-    element.classList.add('container');
+    element.classList.add('container', 'p-2');
     element.prepend(div);
     div.outerHTML = '<div class="position-absolute top-0 end-0" style="z-index: 1;"><button class="btn btn-secondary btn-sm" onclick="navigator.clipboard.writeText(this.parentElement.parentElement.textContent)"><i class="bi-clipboard-plus"></i></button></div>';
   }

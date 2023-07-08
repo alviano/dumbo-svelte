@@ -4,8 +4,8 @@ export function asp() {
     return {
         case_insensitive: true, // language is case-insensitive
         keywords: {
-            $pattern: /#[a-z]+[+]?|:-|:~|[.]/,
-            keyword: '#true #false #count #sum #sum+ #min #max #show :- :~ .',
+            $pattern: /#?[a-z]+[+]?|:-|:~|[.]/,
+            keyword: 'not #true #false #count #sum #sum+ #min #max #show :- :~ .',
         },
         contains: [
             {
