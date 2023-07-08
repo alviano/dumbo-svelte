@@ -9,12 +9,14 @@ import MarkdownIt from 'markdown-it';
 import pako from "pako";
 import {Base64} from "js-base64";
 import highlight from "highlight.js";
+import {asp} from "$lib/highlight_asp";
+
+highlight.registerLanguage("asp", asp);
 
 const markdownIt = new MarkdownIt({
   highlight: function (str, lang) {
     if (lang && highlight.getLanguage(lang)) {
       try {
-        console.log(highlight.highlight(str, { language: lang }).value)
         return highlight.highlight(str, { language: lang }).value;
       } catch (__) { /* empty */ }
     }
