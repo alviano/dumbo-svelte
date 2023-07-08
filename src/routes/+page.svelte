@@ -26,3 +26,26 @@
     PURIFY_ALLOWED_TAGS: ['p', 'em', '#text']
 }))}
 
+{@html Utils.render_markdown(`
+\`\`\`python
+print("hello")
+\`\`\`
+
+\`\`\`js
+let x = 5;
+\`\`\`
+
+\`\`\`c
+int x = 5;
+\`\`\`
+
+
+`, new DOMPurifyConfig({
+  PURIFY_LOG_ERRORS: 'true',
+  PURIFY_EXTERNAL_LINK_PREFIXES: [
+    'https://ssd2020.pythonanywhere.com/',
+    'https://cod.alviano.org/',
+  ],
+  PURIFY_ALLOWED_TAGS: 'a blockquote body br code em h1 h2 h3 h4 h5 h6 hr img li ol p pre span strong table tbody td th thead tr ul #text'.split(' '),
+  PURIFY_ALLOWED_ATTR: 'alt class href src style title'.split(' '),
+}))}

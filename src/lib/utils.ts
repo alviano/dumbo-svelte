@@ -2,15 +2,25 @@ import { Snackbar } from 'svelma/src';
 import Alert from "$lib/Alert.svelte";
 import Confirm from "$lib/Confirm.svelte";
 import DOMPurify from 'isomorphic-dompurify';
-import Prism from 'prismjs';
 import renderMathInElement from 'katex/dist/contrib/auto-render.mjs';
 import newUniqueId from 'locally-unique-id-generator';
 import { sha256 } from "js-sha256";
 import MarkdownIt from 'markdown-it';
 import pako from "pako";
 import {Base64} from "js-base64";
+import highlight from "highlight.js";
 
 const markdownIt = new MarkdownIt({
+  highlight: function (str, lang) {
+    if (lang && highlight.getLanguage(lang)) {
+      try {
+        console.log(highlight.highlight(str, { language: lang }).value)
+        return highlight.highlight(str, { language: lang }).value;
+      } catch (__) { /* empty */ }
+    }
+
+    return '';  // use external default escaping
+  },
   linkify: true,
 });
 
@@ -159,10 +169,6 @@ export class Utils {
         ],
       });
     });
-  }
-
-  static prism() {
-    Prism.highlightAll();
   }
 
   static delay(time: number) {
