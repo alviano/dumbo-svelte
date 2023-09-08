@@ -10,6 +10,7 @@ import pako from "pako";
 import {Base64} from "js-base64";
 import highlight from "highlight.js";
 import {asp} from "$lib/highlight_asp";
+import fromCharCodes from "string-from-charcodes";
 
 highlight.registerLanguage("asp", asp);
 
@@ -194,7 +195,7 @@ export class Utils {
   static uncompress(base64data: string) {
     const binData = Base64.toUint8Array(base64data);
     const encoded = pako.inflate(binData);
-    const json = Base64.decode(String.fromCharCode.apply(null, [...encoded]));
+    const json = Base64.decode(fromCharCodes(encoded));
     return JSON.parse(json);
   }
 

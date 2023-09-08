@@ -1,6 +1,6 @@
 {
 	"name": "dumbo-svelte",
-	"version": "0.0.33",
+	"version": "0.0.35",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "svelte-kit sync && svelte-package",
@@ -49,6 +49,7 @@
 		"locally-unique-id-generator": "^0.1.5",
 		"markdown-it": "^13.0.1",
 		"pako": "^2.1.0",
+		"string-from-charcodes": "^2.0.0",
 		"svelma": "^0.4.5",
 		"sveltestrap": "^5.10.0"
 	}
