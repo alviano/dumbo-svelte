@@ -18,7 +18,7 @@ const markdownIt = new MarkdownIt({
   highlight: function (str, lang) {
     if (lang && highlight.getLanguage(lang)) {
       try {
-        return highlight.highlight(str, { language: lang }).value;
+        return `<pre class="language-${lang}"><code class="language-${lang}">${highlight.highlight(str, { language: lang }).value}</code></pre>`;
       } catch (__) { /* empty */ }
     }
 
