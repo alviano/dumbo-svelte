@@ -155,7 +155,7 @@ export class Utils {
     });
     DOMPurify.removeHook('afterSanitizeAttributes');
     if (config.PURIFY_LOG_ERRORS && DOMPurify.removed.length > 0) {
-      console.log(DOMPurify.removed);
+      console.log('DOMPurified:', DOMPurify.removed);
     }
     return res;
   }
