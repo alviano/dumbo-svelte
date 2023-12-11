@@ -15,15 +15,15 @@ import fromCharCodes from "string-from-charcodes";
 highlight.registerLanguage("asp", asp);
 
 const markdownIt = new MarkdownIt({
-  highlight: function (str, lang) {
-    if (lang && highlight.getLanguage(lang)) {
-      try {
-        return highlight.highlight(str, { language: lang }).value;
-      } catch (__) { /* empty */ }
-    }
-
-    return '';  // use external default escaping
-  },
+  // highlight: function (str, lang) {
+  //   if (lang && highlight.getLanguage(lang)) {
+  //     try {
+  //       return highlight.highlight(str, { language: lang }).value;
+  //     } catch (__) { /* empty */ }
+  //   }
+  //
+  //   return '';  // use external default escaping
+  // },
   linkify: true,
 });
 
