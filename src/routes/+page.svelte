@@ -28,7 +28,7 @@
 \`\`\`asp
 a(1) :- #count{X : b(X)} == 1.
 a(1) :- #sum+{X : b(X)} == 1.
-a("foo",bar,0).
+a("foo",bar,0). #inf not [ ] 0b01
 :~ foo. [1@1]
 
 count(here).
