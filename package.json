@@ -29,7 +29,6 @@
 		"prettier": "^3.2.5",
 		"prettier-plugin-svelte": "^3.2.1",
 		"sass": "^1.71.0",
-		"svelte": "^4.2.11",
 		"svelte-check": "^3.6.4",
 		"tslib": "^2.4.1",
 		"typescript": "^5.3.3",
@@ -38,6 +37,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"svelte": "^4.2.11",
 		"bulma": "^0.9.4",
 		"codemirror": "^6.0.1",
 		"dompurify": "^3.0.8",
@@ -52,5 +52,27 @@
 		"string-from-charcodes": "^2.0.0",
 		"svelma": "^0.4.5",
 		"sveltestrap": "^5.11.3"
-	}
+	},
+  "exports": {
+    "./package.json": "./package.json",
+    "./Alert.svelte": "./Alert.svelte",
+    "./AutoHideBadge.svelte": "./AutoHideBadge.svelte",
+    "./Breadcrumb.svelte": "./Breadcrumb.svelte",
+    "./ButtonExternalLink.svelte": "./ButtonExternalLink.svelte",
+    "./ButtonInternalLink.svelte": "./ButtonInternalLink.svelte",
+    "./ButtonSwitch.svelte": "./ButtonSwitch.svelte",
+    "./Calendar.svelte": "./Calendar.svelte",
+    "./Confirm.svelte": "./Confirm.svelte",
+    "./ExternalLink.svelte": "./ExternalLink.svelte",
+    "./InternalLink.svelte": "./InternalLink.svelte",
+    "./Keybindings.svelte": "./Keybindings.svelte",
+    "./PollingButton.svelte": "./PollingButton.svelte",
+    "./Popover.svelte": "./Popover.svelte",
+    "./Tooltip.svelte": "./Tooltip.svelte",
+    "./highlight_asp": "./highlight_asp.js",
+    ".": "./index.js",
+    "./stores": "./stores.js",
+    "./utils": "./utils.js"
+  },
+  "svelte": "./index.js"
 }
