@@ -1,5 +1,5 @@
 <script>
-  import { Button, Icon } from 'sveltestrap';
+  import { Button, Icon } from '@sveltestrap/sveltestrap';
 
   export let color = 'secondary';
   export let href = '#';

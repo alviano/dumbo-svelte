@@ -1,5 +1,5 @@
 <script>
-  import { Breadcrumb, BreadcrumbItem } from 'sveltestrap';
+  import { Breadcrumb, BreadcrumbItem } from '@sveltestrap/sveltestrap';
   import InternalLink from '$lib/InternalLink.svelte';
 
   export let path = [['home', '/']];

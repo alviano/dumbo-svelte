@@ -1,5 +1,5 @@
 <script>
-  import { Button } from 'sveltestrap';
+  import { Button } from '@sveltestrap/sveltestrap';
 
   export let href = '#';
   export let role = 'link';

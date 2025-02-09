@@ -1,7 +1,7 @@
 <script>
     import '../app.css';
     import {DOMPurifyConfig, Utils} from "$lib/utils";
-    import {Badge, Button, Icon} from "sveltestrap";
+    import {Badge, Button, Icon} from '@sveltestrap/sveltestrap';
     import {onMount} from "svelte";
 
     function myFunction() {
@@ -15,12 +15,26 @@
     onMount(() => {
         [...document.getElementsByTagName("pre")].forEach(Utils.add_copy_button)
     })
+
+
+  let message = "Hello, this is a snackbar!";
+     function triggerSnackbar() {
+    Utils.snackbar(message, {position: 'is-bottom-right'})
+  }
+     function triggerSnackbar2() {
+    Utils.snackbar(message + Date.now(), {color: "emoji-sunglasses", position: 'is-top-right'})
+  }
 </script>
 
-<!--<div id="myInput">-->
-<!--    <div class="position-absolute end-0" style="z-index: 1">-->
-<!--    <Button on:click={() => myFunction()}><Icon name="clipboard-plus" /></Button>-->
-<!--</div>-->
+<button on:click={triggerSnackbar} class="btn btn-primary">Show Snackbar</button>
+<button on:click={triggerSnackbar2} class="btn btn-primary">Show Snackbar</button>
+
+
+<div id="myInput">
+    <div class="position-absolute end-0" style="z-index: 1">
+    <Button on:click={() => myFunction()}><Icon name="clipboard-plus" /></Button>
+</div>
+</div>
 
 {@html Utils.render_markdown(`
 # foo
@@ -51,4 +65,3 @@ foo.
   PURIFY_ALLOWED_TAGS: 'a body code em h1 h2 h3 h4 h5 h6 img li ol p pre span strong table tbody td th thead tr ul #text'.split(' '),
   PURIFY_ALLOWED_ATTR: 'alt class href src style title'.split(' '),
 }))}
-<!--</div>-->

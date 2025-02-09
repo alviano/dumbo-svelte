@@ -1,4 +1,3 @@
-import { Snackbar } from 'svelma/src';
 import Alert from "$lib/Alert.svelte";
 import Confirm from "$lib/Confirm.svelte";
 import DOMPurify from 'isomorphic-dompurify';
@@ -11,6 +10,9 @@ import {Base64} from "js-base64";
 import highlight from "highlight.js";
 import {asp} from "$lib/highlight_asp";
 import fromCharCodes from "string-from-charcodes";
+import {mount} from "svelte";
+import {toast} from "$lib/ToastManager";
+import ToastManager from "$lib/ToastManager.svelte";
 
 highlight.registerLanguage("asp", asp);
 
@@ -106,23 +108,36 @@ export class Utils {
     });
   }
 
+  private static __toast_managers = new Set();
   static snackbar(message: string, props = {}) {
-    Snackbar.create({ message: message, position: 'is-top-right', ...props });
+    const position = props.position || 'is-top-right';
+    const color = props.color || 'info';
+    const body = props.body;
+
+    if (!this.__toast_managers.has(position)) {
+      this.__toast_managers.add(position)
+      mount(ToastManager, {
+        target: document.body,
+        props: {
+          position: position,
+        },
+      });
+    }
+
+    toast(position, color, message, body);
   }
 
   static confirm(props) {
-    new Confirm({
+    mount(Confirm, {
       target: document.body,
       props,
-      intro: true,
     });
   }
 
   static alert(props) {
-    new Alert({
+    mount(Alert, {
       target: document.body,
       props,
-      intro: true,
     });
   }
 

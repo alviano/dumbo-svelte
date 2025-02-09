@@ -1,5 +1,5 @@
 <script>
-  import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'sveltestrap';
+  import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from '@sveltestrap/sveltestrap';
   import newUniqueId from 'locally-unique-id-generator';
 
   export let message = 'Press OK';

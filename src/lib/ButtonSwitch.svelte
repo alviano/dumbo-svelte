@@ -1,8 +1,5 @@
 <script>
-  import { Button } from 'sveltestrap';
-  import { createEventDispatcher } from 'svelte';
-
-  const dispatch = createEventDispatcher();
+  import { Button } from '@sveltestrap/sveltestrap';
 
   export let assign_to;
   export let value;
@@ -13,8 +10,10 @@
   export let disabled = null;
   export let size = null;
 
+  export let click = (event) => {};
+
   function onclick(event) {
-    dispatch('click', event);
+    click(event);
     if (assign) {
       assign_to = value;
     }

@@ -1,5 +1,5 @@
 <script>
-  import { Tooltip } from 'sveltestrap';
+  import { Tooltip } from '@sveltestrap/sveltestrap';
   import newUniqueId from 'locally-unique-id-generator';
 
   const id = newUniqueId();

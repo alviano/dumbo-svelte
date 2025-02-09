@@ -1,14 +1,14 @@
 <script>
-  import { Button, Progress } from 'sveltestrap';
-  import { createEventDispatcher, onDestroy } from 'svelte';
+  import { Button, Progress } from '@sveltestrap/sveltestrap';
+  import { onDestroy } from 'svelte';
   import Tooltip from '$lib/Tooltip.svelte';
-
-  const dispatch = createEventDispatcher();
 
   export let interval;
   export let ticks = 0;
   export let measure = 'seconds';
   export let color = 'secondary';
+
+  export let click = () => {};
 
   const tick_times = {
     seconds: 1000,
@@ -17,7 +17,7 @@
   };
 
   function onclick() {
-    dispatch('click');
+    click();
     ticks = 0;
   }
 

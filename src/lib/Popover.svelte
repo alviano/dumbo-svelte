@@ -1,5 +1,5 @@
 <script>
-  import { Popover } from 'sveltestrap';
+  import { Popover } from '@sveltestrap/sveltestrap';
   import newUniqueId from 'locally-unique-id-generator';
 
   export let id = null;
