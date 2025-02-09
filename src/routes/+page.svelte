@@ -19,7 +19,7 @@
 
   let message = "Hello, this is a snackbar!";
      function triggerSnackbar() {
-    Utils.snackbar(message, {position: 'is-bottom-right'})
+    Utils.snackbar(message, {position: 'is-bottom-right', body: "<u>foo</u>", html_body: true})
   }
      function triggerSnackbar2() {
     Utils.snackbar(message + Date.now(), {color: "emoji-sunglasses", position: 'is-top-right', header_font_size: '200%'})
@@ -32,10 +32,11 @@
 
 <div id="myInput">
     <div class="position-absolute end-0" style="z-index: 1">
-    <Button on:click={() => myFunction()}><Icon name="clipboard-plus" /></Button>
+    <Button on:click={() => myFunction()}><Icon name="eye" /></Button>
 </div>
 </div>
 
+<div class="border">
 {@html Utils.render_markdown(`
 # foo
 
@@ -65,3 +66,4 @@ foo.
   PURIFY_ALLOWED_TAGS: 'a body code em h1 h2 h3 h4 h5 h6 img li ol p pre span strong table tbody td th thead tr ul #text'.split(' '),
   PURIFY_ALLOWED_ATTR: 'alt class href src style title'.split(' '),
 }))}
+</div>

@@ -48,7 +48,13 @@ import {Icon, Toast, ToastBody, ToastHeader} from "@sveltestrap/sveltestrap";
         </ToastHeader>
       {/if}
       {#if entry.body}
-        <ToastBody style="font-size: { entry.props.body_font_size || '110%' };">{entry.body}</ToastBody>
+        <ToastBody style="font-size: { entry.props.body_font_size || '110%' };">
+          {#if entry.props.html_body}
+            {@html entry.body}
+          {:else}
+            {entry.body}
+          {/if}
+        </ToastBody>
       {/if}
     </Toast>
   {/each}
