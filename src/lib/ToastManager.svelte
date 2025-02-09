@@ -34,21 +34,21 @@ import {Icon, Toast, ToastBody, ToastHeader} from "@sveltestrap/sveltestrap";
   });
 </script>
 
-<div class="toast-container position-fixed {get_position(position)} p-3">
+<div class="toast-container position-fixed {get_position(position)} p-3 w-50">
   {#each toastMessages as entry}
-    <Toast autohide>
+    <Toast autohide class="w-100">
       {#if ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"].includes(entry.color)}
-        <ToastHeader icon="{entry.color}" toggle="{entry.dismiss}">
+        <ToastHeader icon="{entry.color}" toggle="{entry.dismiss}" style="font-size: { entry.props.header_font_size || '150%' };">
           {entry.title}
         </ToastHeader>
       {:else}
-        <ToastHeader toggle="{entry.dismiss}">
+        <ToastHeader toggle="{entry.dismiss}" style="font-size: { entry.props.header_font_size || '150%' };">
           <Icon slot="icon" name="{entry.color}" class="me-2" />
           {entry.title}
         </ToastHeader>
       {/if}
       {#if entry.body}
-        <ToastBody>{entry.body}</ToastBody>
+        <ToastBody style="font-size: { entry.props.body_font_size || '110%' };">{entry.body}</ToastBody>
       {/if}
     </Toast>
   {/each}

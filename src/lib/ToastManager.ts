@@ -18,6 +18,7 @@ export class NlpToastMessage {
     public color: string,
     public autoHide: boolean = false,
     public position: string,
+    public props: object,
   ) {}
   setId = (id: number) => (this.id = id);
   dismiss = () => this._manager.dismiss(this);
@@ -47,5 +48,6 @@ export const toast = (
   title: string,
   body: string | undefined = undefined,
   autoHide: boolean = true,
+  props: object = {},
 ) =>
-  manager.add(new NlpToastMessage(manager, title, body, color, autoHide, position));
+  manager.add(new NlpToastMessage(manager, title, body, color, autoHide, position, props));

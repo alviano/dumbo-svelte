@@ -124,7 +124,7 @@ export class Utils {
       });
     }
 
-    toast(position, color, message, body);
+    toast(position, color, message, body, true, {...props});
   }
 
   static confirm(props) {

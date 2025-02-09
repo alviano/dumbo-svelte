@@ -1,6 +1,6 @@
 {
 	"name": "dumbo-svelte",
-	"version": "0.2.0",
+	"version": "0.2.2",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "svelte-kit sync && svelte-package",
@@ -54,6 +54,9 @@
 		"svelte-package": "^0.1.0"
 	},
 	"exports": {
+		".": {
+			"svelte": "./index.js"
+		},
 		"./package.json": "./package.json",
 		"./Alert.svelte": "./Alert.svelte",
 		"./AutoHideBadge.svelte": "./AutoHideBadge.svelte",
@@ -72,7 +75,6 @@
 		"./ToastManager.ts": "./ToastManager.ts",
 		"./Tooltip.svelte": "./Tooltip.svelte",
 		"./highlight_asp": "./highlight_asp.js",
-		".": "./index.js",
 		"./stores": "./stores.js",
 		"./utils": "./utils.js"
 	},

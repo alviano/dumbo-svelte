@@ -22,7 +22,7 @@
     Utils.snackbar(message, {position: 'is-bottom-right'})
   }
      function triggerSnackbar2() {
-    Utils.snackbar(message + Date.now(), {color: "emoji-sunglasses", position: 'is-top-right'})
+    Utils.snackbar(message + Date.now(), {color: "emoji-sunglasses", position: 'is-top-right', header_font_size: '200%'})
   }
 </script>
 
